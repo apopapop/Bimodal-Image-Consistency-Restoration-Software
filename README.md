@@ -1,6 +1,6 @@
 # 多模态图像修复程序 (Multimodal Image Inpainting)
 
-一个基于Python的桌面交互式图像修复程序，专门用于处理可见光(VIS)和红外(IR)图像对。用户可以在可见光图像上绘制掩膜，程序会自动将同一掩膜应用于对应的红外图像，然后使用LaMa或OpenCV修复功能对两张图像进行独立修复。
+一个基于Python的桌面交互式图像修复程序，专门用于处理可见光(VIS)和红外(IR)图像对。用户可以在可见光图像上绘制掩膜，程序会自动将同一掩膜应用于对应的红外图像，然后使用LaMa或OpenCV修复功能对两张图像进行独立修复。视频链接：https://www.bilibili.com/video/BV1Y8SSBSEAG/?spm_id_from=333.1387.homepage.video_card.click&vd_source=50ac5718acc751cc9288ed2c1c45d0ed
 
 ## 功能特性
 
