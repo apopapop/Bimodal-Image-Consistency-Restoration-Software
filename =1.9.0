@@ -1,0 +1,31 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting modelscope
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0c/ca/52378c0ae37a77afd1bd48ad2d01a1638ae1192be7bfad31da3359306df9/modelscope-1.35.3-py3-none-any.whl (6.1 MB)
+     ---------------------------------------- 6.1/6.1 MB 48.4 MB/s eta 0:00:00
+Requirement already satisfied: filelock in c:\users\admin\appdata\local\programs\python\python310\lib\site-packages (from modelscope) (3.25.2)
+Collecting urllib3>=1.26
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl (131 kB)
+     -------------------------------------- 131.6/131.6 kB 8.1 MB/s eta 0:00:00
+Collecting requests>=2.25
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/56/5d/c814546c2333ceea4ba42262d8c4d55763003e767fa169adc693bd524478/requests-2.33.0-py3-none-any.whl (65 kB)
+     ---------------------------------------- 65.0/65.0 kB ? eta 0:00:00
+Requirement already satisfied: setuptools in c:\users\admin\appdata\local\programs\python\python310\lib\site-packages (from modelscope) (65.5.0)
+Collecting tqdm>=4.64.0
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/16/e1/3079a9ff9b8e11b846c6ac5c8b5bfb7ff225eee721825310c91b3b50304f/tqdm-4.67.3-py3-none-any.whl (78 kB)
+     ---------------------------------------- 78.4/78.4 kB ? eta 0:00:00
+Collecting packaging
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/b7/b9/c538f279a4e237a006a2c98387d081e9eb060d203d8ed34467cc0f0b9b53/packaging-26.0-py3-none-any.whl (74 kB)
+     ---------------------------------------- 74.4/74.4 kB ? eta 0:00:00
+Collecting certifi>=2023.5.7
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/9a/3c/c17fb3ca2d9c3acff52e30b309f538586f9f5b9c9cf454f3845fc9af4881/certifi-2026.2.25-py3-none-any.whl (153 kB)
+     -------------------------------------- 153.7/153.7 kB 9.6 MB/s eta 0:00:00
+Collecting charset_normalizer<4,>=2
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d8/8f/78f5489ffadb0db3eb7aff53d31c24531d33eb545f0c6f6567c25f49a5ff/charset_normalizer-3.4.6-cp310-cp310-win_amd64.whl (154 kB)
+     ---------------------------------------- 154.2/154.2 kB ? eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/0e/61/66938bbb5fc52dbdf84594873d5b51fb1f7c7794e9c0f5bd885f30bc507b/idna-3.11-py3-none-any.whl (71 kB)
+     ---------------------------------------- 71.0/71.0 kB ? eta 0:00:00
+Collecting colorama
+  Downloading https://pypi.tuna.tsinghua.edu.cn/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Installing collected packages: urllib3, packaging, idna, colorama, charset_normalizer, certifi, tqdm, requests, modelscope
+Successfully installed certifi-2026.2.25 charset_normalizer-3.4.6 colorama-0.4.6 idna-3.11 modelscope-1.35.3 packaging-26.0 requests-2.33.0 tqdm-4.67.3 urllib3-2.6.3

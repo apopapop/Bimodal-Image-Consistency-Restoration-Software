@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多模态图像修复程序 - 项目展示</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-camera-retro"></i>
+                <span>多模态图像修复</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">首页</a></li>
+                <li><a href="#overview" class="nav-link">项目概述</a></li>
+                <li><a href="#tech" class="nav-link">技术架构</a></li>
+                <li><a href="#demo" class="nav-link">功能演示</a></li>
+                <li><a href="#deepdive" class="nav-link">技术深度</a></li>
+                <li><a href="#value" class="nav-link">项目价值</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main>
+        <!-- 首页/封面 -->
+        <section id="home" class="section hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">多模态图像修复程序</h1>
+                    <p class="hero-subtitle">VIS + IR 协同修复解决方案</p>
+                    <p class="hero-description">
+                        一个基于Python的桌面交互式图像修复程序，专门用于处理可见光(VIS)和红外(IR)图像对。实现多模态图像协同修复，保持一致性。
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#overview" class="btn btn-primary">项目概述</a>
+                        <a href="#demo" class="btn btn-secondary">功能演示</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-container">
+                        <div class="image-pair">
+                            <div class="image-card">
+                                <div class="card-header">
+                                    <i class="fas fa-sun"></i>
+                                    <span>可见光图像</span>
+                                </div>
+                                <div class="card-content vis-image"></div>
+                            </div>
+                            <div class="image-card">
+                                <div class="card-header">
+                                    <i class="fas fa-thermometer-half"></i>
+                                    <span>红外图像</span>
+                                </div>
+                                <div class="card-content ir-image"></div>
+                            </div>
+                        </div>
+                        <div class="process-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                            <div class="arrow-label">协同修复</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="card-header">
+                                <i class="fas fa-check-circle"></i>
+                                <span>修复结果</span>
+                            </div>
+                            <div class="card-content result-image"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目概述 -->
+        <section id="overview" class="section overview">
+            <div class="container">
+                <h2 class="section-title">项目概述</h2>
+                <p class="section-subtitle">解决多模态图像修复的实际技术挑战</p>
+
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <h3>问题定义</h3>
+                        <p>传统图像修复方法单独处理每种模态，难以保持可见光和红外图像之间的一致性，导致多模态数据协同分析困难。</p>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>解决方案</h3>
+                        <p>开发交互式程序，用户在可见光图像上绘制掩膜，程序自动将同一掩膜应用于红外图像，并同时进行独立修复。</p>
+                    </div>
+
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>核心价值</h3>
+                        <p>实现多模态图像的一致性修复，支持遥感、安防监控、医学影像等领域的实际应用需求。</p>
+                    </div>
+                </div>
+
+                <div class="applications">
+                    <h3 class="applications-title">应用场景</h3>
+                    <div class="applications-list">
+                        <div class="app-item">
+                            <i class="fas fa-satellite"></i>
+                            <span>遥感监测</span>
+                        </div>
+                        <div class="app-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>安防监控</span>
+                        </div>
+                        <div class="app-item">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>医学影像</span>
+                        </div>
+                        <div class="app-item">
+                            <i class="fas fa-industry"></i>
+                            <span>工业检测</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技术架构 -->
+        <section id="tech" class="section tech">
+            <div class="container">
+                <h2 class="section-title">技术架构</h2>
+                <p class="section-subtitle">模块化设计，支持灵活扩展</p>
+
+                <div class="tech-stack">
+                    <h3>技术栈</h3>
+                    <div class="stack-grid">
+                        <div class="stack-item">
+                            <div class="stack-icon">
+                                <i class="fab fa-python"></i>
+                            </div>
+                            <h4>Python 3.10+</h4>
+                            <p>主开发语言</p>
+                        </div>
+                        <div class="stack-item">
+                            <div class="stack-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4>OpenCV 4.8.0+</h4>
+                            <p>图像处理与UI</p>
+                        </div>
+                        <div class="stack-item">
+                            <div class="stack-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>PyTorch 2.0+</h4>
+                            <p>深度学习框架</p>
+                        </div>
+                        <div class="stack-item">
+                            <div class="stack-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h4>ModelScope</h4>
+                            <p>LaMa模型管理</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="architecture">
+                    <h3>系统架构</h3>
+                    <div class="arch-diagram">
+                        <div class="arch-layer">
+                            <div class="layer-title">用户界面层</div>
+                            <div class="layer-content">
+                                <div class="layer-item">OpenCV交互编辑器</div>
+                                <div class="layer-item">掩膜绘制工具</div>
+                            </div>
+                        </div>
+
+                        <div class="arch-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+
+                        <div class="arch-layer">
+                            <div class="layer-title">核心处理层</div>
+                            <div class="layer-content">
+                                <div class="layer-item">图像配对模块</div>
+                                <div class="layer-item">掩膜传递系统</div>
+                                <div class="layer-item">批处理流水线</div>
+                            </div>
+                        </div>
+
+                        <div class="arch-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+
+                        <div class="arch-layer">
+                            <div class="layer-title">修复器层</div>
+                            <div class="layer-content">
+                                <div class="layer-item highlight">OpenCV修复器</div>
+                                <div class="layer-item highlight">LaMa修复器</div>
+                            </div>
+                        </div>
+
+                        <div class="arch-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+
+                        <div class="arch-layer">
+                            <div class="layer-title">工具层</div>
+                            <div class="layer-content">
+                                <div class="layer-item">文件I/O模块</div>
+                                <div class="layer-item">日志系统</div>
+                                <div class="layer-item">配置管理</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 功能演示 -->
+        <section id="demo" class="section demo">
+            <div class="container">
+                <h2 class="section-title">功能演示</h2>
+                <p class="section-subtitle">交互式修复流程与效果展示</p>
+
+                <div class="demo-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>数据准备</h3>
+                            <p>将可见光和红外图像分别放入对应目录，确保文件名和分辨率匹配。</p>
+                            <div class="code-snippet">
+<pre><code>dataset/
+├─ visible/
+│  ├─ image1.jpg
+│  └─ image2.png
+└─ infrared/
+   ├─ image1.jpg
+   └─ image2.png</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>程序启动</h3>
+                            <p>通过命令行启动程序，选择修复后端和参数。</p>
+                            <div class="code-snippet">
+<pre><code>python run.py \
+  --vis-dir dataset/visible \
+  --ir-dir dataset/infrared \
+  --out-dir output \
+  --backend lama \
+  --brush-radius 20</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>交互式修复</h3>
+                            <p>在OpenCV窗口中绘制掩膜，程序自动应用到红外图像。</p>
+                            <div class="demo-features">
+                                <div class="feature">
+                                    <i class="fas fa-mouse-pointer"></i>
+                                    <span>鼠标绘制</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-undo"></i>
+                                    <span>撤销操作</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                    <span>画笔调整</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>结果输出</h3>
+                            <p>修复后的图像和掩膜保存到输出目录。</p>
+                            <div class="code-snippet">
+<pre><code>output/
+├─ visible/      # 修复后的可见光图像
+├─ infrared/     # 修复后的红外图像
+└─ masks/        # 使用的掩膜</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-comparison">
+                    <h3>修复效果对比</h3>
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <div class="comparison-header">
+                                <i class="fas fa-bolt"></i>
+                                <span>OpenCV修复</span>
+                            </div>
+                            <div class="comparison-content">
+                                <p><strong>优点：</strong>速度快，资源要求低</p>
+                                <p><strong>适用场景：</strong>快速调试，简单修复</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-item">
+                            <div class="comparison-header">
+                                <i class="fas fa-robot"></i>
+                                <span>LaMa修复</span>
+                            </div>
+                            <div class="comparison-content">
+                                <p><strong>优点：</strong>修复质量高，细节保持好</p>
+                                <p><strong>适用场景：</strong>高质量修复，复杂场景</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技术深度 -->
+        <section id="deepdive" class="section deepdive">
+            <div class="container">
+                <h2 class="section-title">技术深度</h2>
+                <p class="section-subtitle">核心算法与工程实践</p>
+
+                <div class="deepdive-content">
+                    <div class="deepdive-card">
+                        <h3><i class="fas fa-code"></i> 掩膜传递机制</h3>
+                        <p>关键技术难点：确保在可见光图像上绘制的掩膜能精确应用到红外图像，保持绝对坐标一致性。</p>
+                        <div class="code-snippet">
+<pre><code>def transfer_mask(vis_mask, vis_img, ir_img):
+    """
+    将可见光图像的掩膜传递到红外图像
+    保持绝对坐标一致性，不依赖图像内容
+    """
+    # 1. 获取掩膜在可见光图像中的坐标
+    mask_coords = get_mask_coordinates(vis_mask)
+
+    # 2. 将坐标直接映射到红外图像
+    ir_mask = create_empty_mask_like(ir_img)
+    for coord in mask_coords:
+        # 保持相同的绝对坐标
+        ir_mask[coord] = 255
+
+    return ir_mask</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="deepdive-card">
+                        <h3><i class="fas fa-cogs"></i> 双修复后端策略</h3>
+                        <p>使用策略模式实现，支持运行时切换修复算法，提供灵活的修复选择。</p>
+                        <div class="code-snippet">
+<pre><code>class InpaintingPipeline:
+    def __init__(self, backend='opencv'):
+        # 根据配置选择修复器
+        if backend == 'lama':
+            self.inpainter = LamaInpainter()
+        else:
+            self.inpainter = OpenCVInpainter()
+
+    def process_image(self, image, mask):
+        # 统一接口调用
+        return self.inpainter.inpaint(image, mask)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="deepdive-card">
+                        <h3><i class="fas fa-shield-alt"></i> 错误处理与健壮性</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> LaMa初始化失败自动回退到OpenCV</li>
+                            <li><i class="fas fa-check-circle"></i> 图像加载失败优雅处理</li>
+                            <li><i class="fas fa-check-circle"></i> 内存不足时自动图像缩放</li>
+                            <li><i class="fas fa-check-circle"></i> 详细的日志系统和进度跟踪</li>
+                        </ul>
+                    </div>
+
+                    <div class="deepdive-card">
+                        <h3><i class="fas fa-tachometer-alt"></i> 性能优化</h3>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> 大图像自动缩放到适合显示尺寸</li>
+                            <li><i class="fas fa-check-circle"></i> 修复结果异步保存，不阻塞主线程</li>
+                            <li><i class="fas fa-check-circle"></i> GPU加速支持（LaMa修复器）</li>
+                            <li><i class="fas fa-check-circle"></i> 批量处理优化，减少IO开销</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目价值 -->
+        <section id="value" class="section value">
+            <div class="container">
+                <h2 class="section-title">项目价值</h2>
+                <p class="section-subtitle">技术成果与个人成长</p>
+
+                <div class="value-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>技术深度</h3>
+                        <ul>
+                            <li>掌握多模态图像处理核心技术</li>
+                            <li>深度学习模型集成与实践经验</li>
+                            <li>从算法到工程的完整实现</li>
+                        </ul>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>工程能力</h3>
+                        <ul>
+                            <li>模块化设计与架构思维</li>
+                            <li>错误处理与系统健壮性</li>
+                            <li>性能优化与资源管理</li>
+                        </ul>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>问题解决</h3>
+                        <ul>
+                            <li>实际需求分析与方案设计</li>
+                            <li>多模态一致性技术挑战</li>
+                            <li>从理论到实践的转化能力</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="future-directions">
+                    <h3>未来扩展方向</h3>
+                    <div class="directions-list">
+                        <div class="direction">
+                            <i class="fas fa-plus-circle"></i>
+                            <div>
+                                <h4>更多图像模态支持</h4>
+                                <p>扩展支持深度图、热力图等其他模态</p>
+                            </div>
+                        </div>
+                        <div class="direction">
+                            <i class="fas fa-cloud"></i>
+                            <div>
+                                <h4>Web版本开发</h4>
+                                <p>开发基于浏览器的在线修复工具</p>
+                            </div>
+                        </div>
+                        <div class="direction">
+                            <i class="fas fa-rocket"></i>
+                            <div>
+                                <h4>性能优化</h4>
+                                <p>进一步优化处理速度和内存使用</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conclusion">
+                    <h3>项目总结</h3>
+                    <p>这个多模态图像修复项目不仅是一个技术实现，更是一个完整的工程实践。它展示了从问题定义、技术选型、架构设计到实现优化的全流程能力，体现了扎实的技术功底和工程思维。</p>
+                    <div class="conclusion-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">深度学习</span>
+                        <span class="tag">图像处理</span>
+                        <span class="tag">多模态</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-camera-retro"></i>
+                    <span>多模态图像修复程序</span>
+                </div>
+                <p class="footer-description">
+                    一个基于Python的多模态图像协同修复解决方案，支持可见光和红外图像的一致性修复。
+                </p>
+                <div class="footer-links">
+                    <a href="#home">首页</a>
+                    <a href="#overview">项目概述</a>
+                    <a href="#tech">技术架构</a>
+                    <a href="#demo">功能演示</a>
+                </div>
+                <p class="footer-copyright">
+                    &copy; 2023 多模态图像修复项目 | 用于技术展示
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

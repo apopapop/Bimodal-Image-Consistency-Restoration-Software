@@ -1,0 +1,20 @@
+# 多模态图像修复程序依赖包
+# 建议使用Python 3.10或更高版本
+
+# 核心依赖
+numpy>=1.21.0
+opencv-python>=4.8.0
+Pillow>=9.0.0
+
+# 深度学习框架（修复器需要）
+torch>=2.0.0
+# 注意：如需GPU支持，请安装对应CUDA版本的PyTorch，例如：
+# torch>=2.0.0 --index-url https://download.pytorch.org/whl/cu118
+
+# LaMa模型支持（可选）
+modelscope>=1.9.0
+
+# 开发工具（可选）
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0

@@ -1,0 +1,115 @@
+项目概述
+这是一个基于Python的桌面交互式图像修复程序，专门用于处理可见光(VIS)和红外(IR)图像对。用户可以在可见光图像上绘制掩膜，程序会自动将同一掩膜应用于对应的红外图像，然后使用LaMa或OpenCV修复功能对两张图像进行独立修复。
+
+主要功能
+多模态支持: 同时处理可见光(VIS)和红外(IR)图像对
+交互式掩膜编辑: 在可见光图像上使用鼠标绘制修复区域
+双修复后端: 支持OpenCV（快速调试）和LaMa（高质量修复）
+批量处理: 支持连续处理多个图像对
+完整日志: 详细的处理日志和错误报告
+模块化设计: 易于扩展和维护的代码结构
+技术栈
+核心框架
+Python 3.10+: 主要编程语言
+OpenCV 4.8.0+: 图像处理、UI交互和基础修复
+NumPy 1.21.0+: 数值计算和数组操作
+Pillow 9.0.0+: 图像格式支持和处理
+深度学习修复
+PyTorch 2.0.0+: 深度学习框架
+ModelScope 1.9.0+: LaMa模型管理和推理
+LaMa模型: 高质量图像修复算法
+开发工具
+black/flake8/mypy: 代码格式化和静态检查
+项目结构
+
+multimodal_inpainting/
+├─ app/                          # 应用程序代码
+│  ├─ main.py                    # 主程序入口
+│  ├─ config.py                  # 配置管理
+│  ├─ logger.py                  # 日志配置
+│  ├─ utils/                     # 工具模块
+│  ├─ ui/                        # 用户界面
+│  ├─ core/                      # 核心处理
+│  └─ inpainters/                # 修复器模块
+├─ dataset/                      # 示例数据目录
+│  ├─ visible/                   # 可见光图像
+│  └─ infrared/                  # 红外图像
+├─ output/                       # 输出目录
+├─ requirements.txt              # Python依赖包
+├─ README.md                     # 文档
+└─ run.py                        # 启动脚本
+快速使用指南
+1. 环境安装
+
+# 创建虚拟环境（推荐）
+python -m venv venv
+venv\Scripts\activate     # Windows
+
+# 安装依赖
+pip install -r requirements.txt
+2. 数据准备
+将图像文件按以下方式组织：
+
+
+dataset/
+├─ visible/     # 可见光图像目录
+│  ├─ image1.jpg
+│  └─ ...
+└─ infrared/    # 红外图像目录
+   ├─ image1.jpg    # 与visible/image1.jpg对应
+   └─ ...
+重要要求:
+
+可见光和红外图像必须文件名相同
+可见光和红外图像必须分辨率相同
+3. 运行程序
+使用OpenCV后端（调试模式）
+
+py -3.10 run.py --vis-dir dataset/visible --ir-dir dataset/infrared --out-dir test_output --backend opencv --log-level DEBUG
+使用LaMa后端（ModelScope模式）
+
+py -3.10 run.py --vis-dir dataset/visible --ir-dir dataset/infrared --out-dir test_output --backend lama --log-level DEBUG
+4. 交互式编辑器使用
+程序启动后，OpenCV窗口显示可见光图像：
+
+鼠标操作:
+
+左键拖动: 绘制掩膜区域
+鼠标滚轮: 调整画笔大小
+键盘快捷键:
+
+u: 撤销上一步操作
+c: 清空所有绘制
++/=: 增大画笔大小
+-: 减小画笔大小
+Enter: 确认掩膜并开始修复
+n: 跳过当前图像
+q/Esc: 退出程序
+输出文件
+处理完成后，输出目录结构如下：
+
+
+output/
+├─ visible/           # 修复后的可见光图像
+├─ infrared/          # 修复后的红外图像
+└─ masks/             # 使用的掩膜
+技术特点
+架构设计
+模块化架构: 修复器、UI、核心处理逻辑分离
+可扩展性: 易于添加新的修复算法
+错误恢复: LaMa初始化失败自动回退到OpenCV
+性能优化
+内存管理: 大图像自动缩放到适合显示的大小
+GPU支持: LaMa修复器支持GPU加速
+异步处理: 图像加载和保存使用异步IO
+适用场景
+多模态图像修复研究
+可见光与红外图像协同处理
+图像缺陷修复和内容移除
+计算机视觉教学和实验
+注意事项
+首次运行LaMa需要下载模型文件，耗时较长
+图像配对要求严格的文件名匹配和尺寸一致
+GPU内存不足时建议使用OpenCV后端或减小修复区域
+日志系统提供详细的调试信息，便于问题排查
+该项目已完整实现并经过测试，可直接用于多模态图像修复任务。代码结构清晰，文档完善，具备良好的可维护性和扩展性
