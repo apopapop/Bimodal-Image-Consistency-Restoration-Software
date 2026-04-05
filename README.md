@@ -40,7 +40,7 @@ multimodal_inpainting/
 ├─ dataset/                      # 示例数据目录
 │  ├─ visible/                   # 可见光图像
 │  └─ infrared/                  # 红外图像
-├─ output/                       # 输出目录
+├─ test_output/                       # 输出目录
 │  ├─ visible/                   # 修复后的可见光图像
 │  ├─ infrared/                  # 修复后的红外图像
 │  └─ masks/                     # 使用的掩膜
@@ -99,82 +99,14 @@ dataset/
 #### 使用OpenCV后端（调试模式）
 
 ```bash
-python run.py \
-  --vis-dir dataset/visible \
-  --ir-dir dataset/infrared \
-  --out-dir output \
-  --backend opencv \
-  --brush-radius 20
+py -3.10 run.py --vis-dir dataset/visible --ir-dir dataset/infrared --out-dir test_output --backend opencv --log-level DEBUG
 ```
 
-#### 使用LaMa后端（ModelScope模式）
+#### 使用LaMa后端
 
 ```bash
-python run.py \
-  --vis-dir dataset/visible \
-  --ir-dir dataset/infrared \
-  --out-dir output \
-  --backend lama \
-  --lama-mode modelscope \
-  --brush-radius 20
+py -3.10 run.py --vis-dir dataset/visible --ir-dir dataset/infrared --out-dir test_output --backend lama --log-level DEBUG
 ```
-
-#### 使用LaMa后端（外部仓库模式）
-
-```bash
-# 设置环境变量
-export LAMA_REPO_PATH=/path/to/your/lama-repo  # Linux/Mac
-# 或
-set LAMA_REPO_PATH=C:\path\to\your\lama-repo   # Windows
-
-# 运行程序
-python run.py \
-  --vis-dir dataset/visible \
-  --ir-dir dataset/infrared \
-  --out-dir output \
-  --backend lama \
-  --lama-mode external_repo \
-  --brush-radius 20
-```
-
-## 图形界面(GUI)启动
-
-如果您偏好使用图形界面，可以使用GUI版本的程序：
-
-### 启动GUI
-```bash
-python gui_run.py
-```
-
-### GUI界面功能
-1. **目录选择**：
-   - 通过浏览按钮选择可见光图像目录
-   - 通过浏览按钮选择红外图像目录
-   - 通过浏览按钮选择输出目录
-
-2. **高级选项**：
-   - 修复后端选择：OpenCV 或 LaMa
-   - LaMa模式选择（仅当使用LaMa后端时）
-   - 画笔半径设置
-
-3. **运行控制**：
-   - 开始修复：启动处理流程
-   - 停止：终止正在运行的处理
-   - 清除日志：清空输出窗口
-
-4. **实时日志**：
-   - 显示程序运行状态和输出
-   - 彩色编码的消息类型（信息、警告、错误、成功）
-   - 自动滚动到最新消息
-
-### GUI工作流程
-1. 启动 `python gui_run.py`
-2. 选择三个目录路径
-3. 配置高级选项（可选）
-4. 点击"开始修复"按钮
-5. 程序会在后台运行，打开OpenCV窗口供您交互式绘制掩膜
-6. 在GUI中查看实时日志输出
-7. 处理完成后查看输出目录中的结果
 
 ## 命令行参数
 
@@ -221,20 +153,13 @@ python gui_run.py
 - 掩膜区域统计
 - 快捷键提示
 
-## LaMa修复器配置
-
-### ModelScope模式（推荐）
-程序会自动从ModelScope下载并加载LaMa模型。首次运行可能需要较长时间下载模型文件。
-
-### 外部仓库模式
-如果您有本地的LaMa仓库，可以通过环境变量`LAMA_REPO_PATH`指定路径。仓库中需要包含推理脚本（如`inference.py`、`inpaint.py`等）。
 
 ## 输出文件
 
 处理完成后，输出目录结构如下：
 
 ```
-output/
+test_output/
 ├─ visible/           # 修复后的可见光图像
 │  ├─ image1.jpg
 │  ├─ image2.png
@@ -288,32 +213,13 @@ output/
 3. 实现`initialize()`和`inpaint()`方法
 4. 在`app/main.py`的`create_inpainter()`函数中添加支持
 
-### 扩展UI功能
 
-1. 修改`app/ui/mask_editor.py`
-2. 添加新的鼠标或键盘事件处理
-3. 更新显示界面
 
 ### 添加新的图像格式支持
 
 1. 修改`app/utils/image.py`中的`load_image()`方法
 2. 更新`app/utils/file_matcher.py`中的`SUPPORTED_EXTS`列表
 
-## 性能优化
-
-### 内存使用
-- 大图像会自动缩放到适合显示的大小
-- 修复完成后及时释放内存
-- 支持批处理模式，避免重复加载模型
-
-### GPU加速
-- LaMa修复器支持GPU加速
-- 自动检测CUDA可用性
-- 可通过`--use-gpu`参数控制
-
-### 多线程处理
-- 图像加载和保存使用异步IO
-- 修复过程支持并行处理（未来版本）
 
 ## 许可证
 
